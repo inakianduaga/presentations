@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Markdown Presentations</title>
+  <meta charset="utf-8">  
+</head>
+
+<body>  
+  <textarea id="source">
+
+class: center, middle
+
+# Markdown Presentations
+> Portable, open, markdown-powered presentations
+
+.footnote.small.faded.align-center[
+[RemarkJS](https://remarkjs.com/) - [RevealJS](https://revealjs.com/) - [Spectacle](http://stack.formidable.com/spectacle/)
+
+Dr. Inaki Anduaga - Lead Engineer @ AutoScout24
+]
+
+---
+
+## Presentations for software engineers
+
+### Important:
+
+- Easy to display code with nice formatting & syntax highlighting
+- Easy to write
+- Consistent styling (Latex vs Word anyone?)
+- Open standards (hint: Keynote/PowerPoint are not it)
+- Portable (single file)
+- Mobile support, responsive
+- Web-powered (open from browser, host in github pages)
+
+--
+
+### Don't care for
+
+- Fancy in-slide animations
+- Complex relations between image diagrams & text 
+
+---
+
+## Libraries for M⬇ presentations
+
+**[RemarkJS](https://remarkjs.com/#1)** 
+- Very simple
+- Easiest markdown integration
+
+--
+
+**[RevealJS](https://revealjs.com/#/)**
+- More possibilities
+- Fancier transitions
+- Vertical + horizontal navigation
+- Websocket-synchronized navigation between presenter & viewers 
+
+--
+
+**[Spectacle](http://stack.formidable.com/spectacle/)**
+- React-based, interactive presentations
+- Transitions
+- ᗧ•••ᗣ•• navigation
+- Too much work?
+
+---
+
+class: left
+
+## Recording terminal sessions
+> From terminal to browser in two lines
+
+[Asciinema](LINK): record terminal sessions and replay them in the browser 
+
+```sh
+# Install asciinema locally
+brew install asciinema 
+
+# records to a file
+asciinema rec demo.cast # 
+
+# Base64-encode recording and copy custom element integration to clipboard
+cat demo.cast | base64 | cat <(printf "<asciinema-player src=\"data:text/plain;base64,") - <(printf "\"/>") | pbcopy
+```
+
+--
+
+Afterwards, paste `<asciinema-player ../>` tag into your html:
+
+<asciinema-player src="data:text/plain;base64,eyJ2ZXJzaW9uIjogMiwgIndpZHRoIjogMTE5LCAiaGVpZ2h0IjogMjksICJ0aW1lc3RhbXAiOiAxNTM5NDIyMDM3LCAiZW52IjogeyJTSEVMTCI6ICIvYmluL3pzaCIsICJURVJNIjogInNjcmVlbi0yNTZjb2xvciJ9fQpbMC41MDAwNiwgIm8iLCAiXHUwMDFiWzFtXHUwMDFiWzNtJVx1MDAxYlsyM21cdTAwMWJbMW1cdTAwMWJbMG0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXHIgXHJcdTAwMWJrLi5pb25zL3RlbXBsYXRlXHUwMDFiXFwiXQpbMC41MjY1NzMsICJvIiwgIlxyXHUwMDFiWzBtXHUwMDFiWzIzbVx1MDAxYlsyNG1cdTAwMWJbSlx1MDAxYlswMTszMm3inpwgIFx1MDAxYlszNm10ZW1wbGF0ZVx1MDAxYlswMG0gXHUwMDFiW0siXQpbMC41MjY3NTYsICJvIiwgIlx1MDAxYls/MWhcdTAwMWI9Il0KWzAuNTI3Mjg5LCAibyIsICJcdTAwMWJbPzIwMDRoIl0KWzEuMTMxNDEyLCAibyIsICJcdTAwMWJbMzJtbFx1MDAxYlszOW1cdTAwMWJbOTBtc1x1MDAxYlsyM20gLWxhXHUwMDFiWzM5bVxiXGJcYlxiXGIiXQpbMS4yMDI4MDUsICJvIiwgIlxiXHUwMDFiWzMybWxcdTAwMWJbMzJtc1x1MDAxYlszOW1cdTAwMWJbOTBtIFx1MDAxYlsyM21cYiJdClsxLjM3MTE5LCAibyIsICJcdTAwMWJbMzltXHUwMDFiWzM5bSBcdTAwMWJbOTBtLVx1MDAxYlsyM21cYiJdClsyLjAxMDE5MSwgIm8iLCAiXHUwMDFiWzM5bVx1MDAxYlszOW0tXHUwMDFiWzM5bWxcdTAwMWJbMzltYSJdClsyLjM5MjY3MywgIm8iLCAiXHUwMDFiWz8xbFx1MDAxYj4iXQpbMi4zOTQ0OTgsICJvIiwgIlx1MDAxYls/MjAwNGxcclxyXG4iXQpbMi4zOTU1NzgsICJvIiwgIlx1MDAxYmtsc1x1MDAxYlxcIl0KWzIuNTAxMTE2LCAibyIsICJcdTAwMWJbMG10b3RhbCAxMDRcdTAwMWJbMG1cclxuIl0KWzIuNTAxMzAyLCAibyIsICJcdTAwMWJbMG1cdTAwMWJbMW1cdTAwMWJbMzdtZFx1MDAxYlswbVx1MDAxYlszMjs5Mm1yd3hcdTAwMWJbMG1cdTAwMWJbMzNtclx1MDAxYlswbS1cdTAwMWJbMG1cdTAwMWJbMzNteFx1MDAxYlswbVx1MDAxYlszMTs5MW1yXHUwMDFiWzBtLVx1MDAxYlswbVx1MDAxYlszMTs5MW14XHUwMDFiWzBtICAgNCBpYW5kdWFnYSAgc3RhZmYgICAgMTM2IFx1MDAxYlswbVx1MDAxYlszNm1PY3RcdTAwMWJbMG0gXHUwMDFiWzBtXHUwMDFiWzM2bTEzXHUwMDFiWzBtIFx1MDAxYlswbVx1MDAxYlszNm0xMVx1MDAxYlswbTpcdTAwMWJbMG1cdTAwMWJbMzZtMTNcdTAwMWJbMG0gLlx1MDAxYlswbVxyXG4iXQpbMi41MDE0NDIsICJvIiwgIlx1MDAxYlswbVx1MDAxYlsxbVx1MDAxYlszN21kXHUwMDFiWzBtXHUwMDFiWzMyOzkybXJ3eFx1MDAxYlswbVx1MDAxYlszM21yXHUwMDFiWzBtLVx1MDAxYlswbVx1MDAxYlszM214XHUwMDFiWzBtXHUwMDFiWzMxOzkxbXJcdTAwMWJbMG0tXHUwMDFiWzBtXHUwMDFiWzMxOzkxbXhcdTAwMWJbMG0gIDE1IGlhbmR1YWdhICBzdGFmZiAgICA1MTAgXHUwMDFiWzBtXHUwMDFiWzM2bU9jdFx1MDAxYlswbSBcdTAwMWJbMG1cdTAwMWJbMzZtMTNcdTAwMWJbMG0gXHUwMDFiWzBtXHUwMDFiWzM2bTEwXHUwMDFiWzBtOlx1MDAxYlswbVx1MDAxYlszNm01Mlx1MDAxYlswbSAuLlx1MDAxYlswbVxyXG4iXQpbMi41MDE1OTYsICJvIiwgIlx1MDAxYlswbS1cdTAwMWJbMG1cdTAwMWJbMzI7OTJtcndcdTAwMWJbMG0tXHUwMDFiWzBtXHUwMDFiWzMzbXJcdTAwMWJbMG0tLVx1MDAxYlswbVx1MDAxYlszMTs5MW1yXHUwMDFiWzBtLS1AICAxIGlhbmR1YWdhICBzdGFmZiAgNDkwODggXHUwMDFiWzBtXHUwMDFiWzM2bU9jdFx1MDAxYlswbSBcdTAwMWJbMG1cdTAwMWJbMzZtMTNcdTAwMWJbMG0gXHUwMDFiWzBtXHUwMDFiWzM2bTExXHUwMDFiWzBtOlx1MDAxYlswbVx1MDAxYlszNm0xMVx1MDAxYlswbSBwcmVzZW50YXRpb24tdGVtcGxhdGUtcmVtYXJranMuaHRtbFx1MDAxYlswbVxyXG4iXQpbMi41MDE3MTUsICJvIiwgIlx1MDAxYlswbS1cdTAwMWJbMG1cdTAwMWJbMzI7OTJtcndcdTAwMWJbMG0tXHUwMDFiWzBtXHUwMDFiWzMzbXJcdTAwMWJbMG0tLVx1MDAxYlswbVx1MDAxYlszMTs5MW1yXHUwMDFiWzBtLS0gICAxIGlhbmR1YWdhICBzdGFmZiAgICA5MzAgXHUwMDFiWzBtXHUwMDFiWzM2bU9jdFx1MDAxYlswbSBcdTAwMWJbMG1cdTAwMWJbMzZtMTNcdTAwMWJbMG0gXHUwMDFiWzBtXHUwMDFiWzM2bTExXHUwMDFiWzBtOlx1MDAxYlswbVx1MDAxYlszNm0xM1x1MDAxYlswbSBwcmVzZW50YXRpb24uY2FzdFx1MDAxYlswbVxyXG4iXQpbMi41MDk2NDgsICJvIiwgIlx1MDAxYlsxbVx1MDAxYlszbSVcdTAwMWJbMjNtXHUwMDFiWzFtXHUwMDFiWzBtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxyIFxyIl0KWzIuNTA5NzgyLCAibyIsICJcdTAwMWJrLi5pb25zL3RlbXBsYXRlXHUwMDFiXFwiXQpbMi41NDA0ODYsICJvIiwgIlxyXHUwMDFiWzBtXHUwMDFiWzIzbVx1MDAxYlsyNG1cdTAwMWJbSlx1MDAxYlswMTszMm3inpwgIFx1MDAxYlszNm10ZW1wbGF0ZVx1MDAxYlswMG0gXHUwMDFiW0siXQpbMi41NDA2ODYsICJvIiwgIlx1MDAxYls/MWhcdTAwMWI9Il0KWzIuNTQxMTY0LCAibyIsICJcdTAwMWJbPzIwMDRoIl0KWzQuMzYyODk0LCAibyIsICIgIl0KWzQuNDc1MjM0LCAibyIsICJhIl0KWzQuNTYyNzE1LCAibyIsICJyIl0KWzQuNjY3NDAzLCAibyIsICJlIl0KWzQuNzU0ODI4LCAibyIsICIgIl0KWzQuOTYzMjg2LCAibyIsICJ3Il0KWzUuMDU4MzU3LCAibyIsICJhIl0KWzUuMjI3NDk3LCAibyIsICJ0Il0KWzUuNDU2MTg1LCAibyIsICJjIl0KWzUuNTEzNDY0LCAibyIsICJoIl0KWzUuNjgzNjksICJvIiwgImkiXQpbNS43NTQ1NjQsICJvIiwgIm4iXQpbNS44MjYwODksICJvIiwgImciXQpbNi4wNTUxOTEsICJvIiwgIi4iXQpbNi4yMDI5OTksICJvIiwgIi4iXQpbNi4zMzE1NzUsICJvIiwgIi4iXQpbOC40NDIwNzMsICJvIiwgIlx1MDAxYls/MWxcdTAwMWI+Il0KWzguNDQ0NTU0LCAibyIsICJcdTAwMWJbPzIwMDRsXHJcclxuIl0KWzguNDQ1NDAzLCAibyIsICJcdTAwMWJrdGhleVx1MDAxYlxcIl0KWzguNDQ3MDExLCAibyIsICJ6c2g6IGNvbW1hbmQgbm90IGZvdW5kOiB0aGV5XHJcbiJdCls4LjQ0NzMyMywgIm8iLCAiXHUwMDFiWzFtXHUwMDFiWzNtJVx1MDAxYlsyM21cdTAwMWJbMW1cdTAwMWJbMG0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXHIgXHIiXQpbOC40NDc0NCwgIm8iLCAiXHUwMDFiay4uaW9ucy90ZW1wbGF0ZVx1MDAxYlxcIl0KWzguNDc0NTY4LCAibyIsICJcclx1MDAxYlswbVx1MDAxYlsyM21cdTAwMWJbMjRtXHUwMDFiW0pcdTAwMWJbMDE7MzFt4p6cICBcdTAwMWJbMzZtdGVtcGxhdGVcdTAwMWJbMDBtIFx1MDAxYltLIl0KWzguNDc0NzU5LCAibyIsICJcdTAwMWJbPzFoXHUwMDFiPSJdCls4LjQ3NTMwNSwgIm8iLCAiXHUwMDFiWz8yMDA0aCJdCls5LjE4MjQ3NywgIm8iLCAiXHUwMDFiWz8yMDA0bFxyXHJcbiJdCg==" cols="120" rows="12" speed="1.5" idle-time-limit="2" poster="data:text/plain,Asciinema recording example"/>
+
+---
+
+class: left
+
+## Recording screen activity
+> Easily gifify a demo 
+
+On the Mac, you can easily record short screen demos by using free [LiceCap](https://www.cockos.com/licecap/) utility. 
+
+- Super easy to use, gif output
+- Doesn't include audio (use *QuickTime* record function for that)
+
+<div style="text-align: center">
+  <img style="max-height: 300px; margin: 0.5em auto" src="https://user-images.githubusercontent.com/4490289/46961068-3659ce00-d0a0-11e8-9363-6288d4b57152.gif" />
+</div>
+
+---
+
+class: left
+
+## UML Diagrams 
+> Easy-as-pie diagrams-as-code 
+
+- [Gravizo](https://gravizo.com/): UML inside github
+- [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/)
+- [mermaid](https://mermaidjs.github.io/): UML library - [live editor](https://mermaidjs.github.io/mermaid-live-editor/#/)
+
+<div class="mermaid" style="transform: scale(0.75); margin-top: -53px;">
+  sequenceDiagram
+  Alice ->> Bob: Hello Bob, how are you?
+  Bob-->>John: How about you John?
+  Bob--x Alice: I am good thanks!
+  Bob-x John: I am good thanks!
+  Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+  Bob-->Alice: Checking with John...
+  Alice->John: Yes... John, how are you?
+</div>
+  
+---
+
+## (ab)Use the cloud
+> Host everything online for a no-download, one-click experience
+
+**We want to**:
+- Remove the barrier of entry to read our presentations.
+- Keep everything in a single file for easy sharing (slack, email, etc)
+
+**How**:
+
+- [Github pages](https://pages.github.com/): Public presentations can be hosted on github pages [for free](link to example)
+- [Images & gifs](https://help.github.com/articles/file-attachments-on-issues-and-pull-requests/): Upload gif files to a github issue comment and let github store it for you (*warning: always public*).
+- [Free CDNs](https://www.jsdelivr.com/): serve any file from any public repo from *github* or *npm*
+
+---
+
+## Putting it all together
+> From inception to the cloud
+
+- Dump your thoughts into headers & bullets using markdown (no visual distractions)
+- Move into presentation template, split into pages
+- Add links/images/screencasts
+- Host online & share
+- [RevealJS example](https://inakianduaga.github.io/kafka-image-processor/#/) 
+- [RemarkJS example](https://inakianduaga.github.io/presentations/travisCI/travisCI.html#1)
+
+
+  </textarea>
+
+  <!-- Asciinema player -->
+  <link rel="stylesheet" href="https://inakianduaga.github.io/presentations/libs/asciinema-player/asciinema-player.css" />
+  <script src="https://inakianduaga.github.io/presentations/libs/asciinema-player/asciinema-player.js"></script>
+
+  <!-- Mermaid UML diagrams -->
+  <script src="https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js"></script>
+  <link rel="stylesheet" href="https://inakianduaga.github.io/presentations/libs/mermaid/mermaid.css" />
+  <link rel="stylesheet" href="https://inakianduaga.github.io/presentations/libs/mermaid/mermaid.forest.css" />
+  <script>mermaid.initialize({startOnLoad:true});</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/remark/0.14.0/remark.js"> </script>
+
+  
+
+  <script>
+    var slideshow = remark.create({
+      highlightLines: true,
+      highlightStyle: "github",
+      // highlightSpans: true,
+    });
+  </script>    
+
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+    @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+    @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+    body {
+      font-family: 'Droid Serif';
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Yanone Kaffeesatz';
+      font-weight: 400;
+      margin-bottom: 0.1em;
+    }
+
+    li {
+      margin-top: 0.3em;
+      margin-bottom: 0.3em;
+    }
+
+    .remark-slide-content h1 {
+      font-size: 3em;
+    }
+
+    .remark-slide-content h2 {
+      font-size: 2em;
+    }
+
+    .remark-slide-content h3 {
+      font-size: 1.6em;
+    }
+
+    .footnote {
+      position: absolute;
+      bottom: 3em;
+      left: 0;
+      right: 0;
+    }
+
+    blockquote {
+      padding: 0 1em;
+      color: #6a737d;
+      border-left: 0.25em solid #dfe2e5;
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    blockquote p {
+      margin: 0;
+    }
+
+    .inline-block {
+      display: inline-block;
+    }
+
+    .align-left {
+      text-align: left;
+    }
+
+    .align-right {
+      text-align: right;
+    }
+
+    .align-center {
+      text-align: center;
+    }
+
+    .small {
+      font-size: 0.8em;
+    }
+
+    .faded {
+      opacity: 0.7;
+    }
+
+    .width-50 {
+      max-width: 50%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .width-70 {
+      max-width: 70%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .margin-h-0 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    li p {
+      line-height: 1.25em;
+    }
+
+    .red {
+      color: #fa0000;
+    }
+
+    .large {
+      font-size: 2em;
+    }
+
+    a,
+    a>code {
+      color: rgb(249, 38, 114);
+      text-decoration: none;
+    }
+
+    code {
+      background: #e7e8e2;
+      border-radius: 5px;
+    }
+
+    .remark-code,
+    .remark-inline-code {
+      font-family: 'Ubuntu Mono';
+    }
+
+    .pull-left {
+      float: left;
+      width: 47%;
+    }
+
+    .pull-right {
+      float: right;
+      width: 47%;
+    }
+
+    .pull-right~p {
+      clear: both;
+    }
+
+    #slideshow .slide .content code {
+      font-size: 0.8em;
+    }
+
+    #slideshow .slide .content pre code {
+      font-size: 0.9em;
+      padding: 15px;
+    }
+
+    .inverse {
+      background: #272822;
+      color: #777872;
+      text-shadow: 0 0 20px #333;
+    }
+
+    .inverse h1,
+    .inverse h2 {
+      color: #f3f3f3;
+      line-height: 0.8em;
+    }
+
+    /* Slide-specific styling */
+    #slide-inverse .footnote {
+      bottom: 12px;
+      left: 20px;
+    }
+
+    #slide-how .slides {
+      font-size: 0.9em;
+      position: absolute;
+      top: 151px;
+      right: 140px;
+    }
+
+    #slide-how .slides h3 {
+      margin-top: 0.2em;
+    }
+
+    #slide-how .slides .first,
+    #slide-how .slides .second {
+      padding: 1px 20px;
+      height: 90px;
+      width: 120px;
+      -moz-box-shadow: 0 0 10px #777;
+      -webkit-box-shadow: 0 0 10px #777;
+      box-shadow: 0 0 10px #777;
+    }
+
+    #slide-how .slides .first {
+      background: #fff;
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      z-index: 1;
+    }
+
+    #slide-how .slides .second {
+      position: relative;
+      background: #fff;
+      z-index: 0;
+    }
+
+    /* Two-column layout */
+    .left-column {
+      color: #777;
+      width: 20%;
+      height: 92%;
+      float: left;
+    }
+
+    .left-column h2:last-of-type,
+    .left-column h3:last-child {
+      color: #000;
+    }
+
+    .right-column {
+      width: 75%;
+      float: right;
+      padding-top: 1em;
+    }
+
+    .background-image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      /* applied using JavaScript only if background-image is larger than slide */
+    }
+
+    .mermaid {
+      text-align: center;
+    }
+
+  </style>
+
+</body>
+
+</html>
