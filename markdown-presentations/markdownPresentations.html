@@ -115,19 +115,52 @@ class: left
 > Easy-as-pie diagrams-as-code 
 
 - [Gravizo](https://gravizo.com/): UML inside github
-- [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/)
 - [mermaid](https://mermaidjs.github.io/): UML library - [live editor](https://mermaidjs.github.io/mermaid-live-editor/#/)
+- [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/)
 
-<div class="mermaid" style="transform: scale(0.75); margin-top: -53px;">
-  sequenceDiagram
-  Alice ->> Bob: Hello Bob, how are you?
-  Bob-->>John: How about you John?
-  Bob--x Alice: I am good thanks!
-  Bob-x John: I am good thanks!
-  Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+--
 
-  Bob-->Alice: Checking with John...
-  Alice->John: Yes... John, how are you?
+<br/>
+```html
+<div>
+  <div>
+      Andrew->China: Says Hello
+      Note right of China: China thinks\nabout it
+      China-->Andrew: How are you?
+      Andrew->>China: I am good thanks!
+  </div>
+  <div>
+      participant C
+      participant B
+      participant A
+      Note right of A: Some more\n text can go here
+  </div>
+</div>
+```
+
+---
+
+## UML Diagrams 
+> Easy-as-pie diagrams-as-code 
+
+- [Gravizo](https://gravizo.com/): UML inside github
+- [mermaid](https://mermaidjs.github.io/): UML library - [live editor](https://mermaidjs.github.io/mermaid-live-editor/#/)
+- [JS Sequence Diagrams](https://bramp.github.io/js-sequence-diagrams/)
+
+<div style="display: flex;">
+  <div class="diagram">
+      Andrew->China: Says Hello
+      Note right of China: China thinks\nabout it
+      China-->Andrew: How are you?
+      Andrew->>China: I am good thanks!
+  </div>
+
+  <div class="diagram">
+      participant C
+      participant B
+      participant A
+      Note right of A: Some more\n text can go here
+  </div>
 </div>
   
 ---
@@ -165,15 +198,27 @@ class: left
   <script src="https://inakianduaga.github.io/presentations/libs/asciinema-player/asciinema-player.js"></script>
 
   <!-- Mermaid UML diagrams -->
-  <script src="https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js"></script>
+  <!-- <script src="https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js"></script>
   <link rel="stylesheet" href="https://inakianduaga.github.io/presentations/libs/mermaid/mermaid.css" />
-  <link rel="stylesheet" href="https://inakianduaga.github.io/presentations/libs/mermaid/mermaid.forest.css" />
-  <script>mermaid.initialize({startOnLoad:true});</script>
+  <script>mermaid.initialize({startOnLoad:true});</script> -->
 
+  <!-- JS Sequence Diagrams -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <script src="https://inakianduaga.github.io/presentations/libs/js-sequence-diagrams/js-sequence-diagrams.min.js"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function(event) {
+        $(".diagram").sequenceDiagram({theme: 'hand'}); // theme: 'hand' | 'simple'
+      });
+  </script>
+  <style>
+    @font-face{font-family:'danielbd';src:url(https://cdn.jsdelivr.net/npm/js-sequence-diagrams@1000000.0.6/fonts/daniel/danielbd.woff2) format('woff2'),url(https://cdn.jsdelivr.net/npm/js-sequence-diagrams@1000000.0.6/fonts/daniel/danielbd.woff) format('woff');font-weight:normal;font-style:normal}
+  </style>
+
+  <!-- RemarkJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/remark/0.14.0/remark.js"> </script>
-
-  
-
   <script>
     var slideshow = remark.create({
       highlightLines: true,
@@ -182,6 +227,7 @@ class: left
     });
   </script>    
 
+  <!-- Custom Styles -->
   <style>
     @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
     @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
